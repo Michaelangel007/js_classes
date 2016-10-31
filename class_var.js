@@ -39,14 +39,14 @@ var Base = ( function()
     Base.prototype.init = function() // public
     {
         return this;
-    }
+    };
 
     Base.prototype.dump = function()
     {
-        console.log( this.ID               ); // error: this.FOO
+        console.log( this.ID               ); // error: this.ID
         console.log( this.constructor.name ); // "Base" or "Derived"
-        console.log( this.constructor.ID   ); // Base.ID or Derived.ID, requires <Class>.prototye.constructor
-    }
+        console.log( this.constructor.ID   ); // Base.ID or Derived.ID, requires <Class>.prototype.constructor
+    };
 
     return Base;
 
@@ -68,7 +68,7 @@ var Derived = ( function()
         Base.prototype.init.call( this );
 
         return this;
-    }
+    };
     
     return Derived;
 
