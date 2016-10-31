@@ -1,10 +1,12 @@
 /*
 
-Javascript has 3 types of functions:
+Javascript has 5 types of functions -- 3 types of object functions:
 
-Private | Class    Function | function bar()                   |
-Public  | Class    Funcion  | Class.foo()                      |
-Public  | Instance Function | Class.prototype.qux = function() |
+Private | Global   | function Foo() { ... }           |
+Public  | Anonymous| Foo( function Anonymous() { } )  |
+Private | Class    | function bar()                   |
+Public  | Class    | Class.foo function()             |
+Public  | Instance | Class.prototype.qux = function() |
 
 There are 4 different ways to the class from an object.
 
@@ -43,7 +45,9 @@ var Base = ( function()
 
     Base.prototype.dump = function()
     {
-        console.log( this.ID               ); // error: this.ID
+        console.log( "dump()" );
+        console.log( "this:     " + this );
+//      console.log( this.ID               ); // ERROR: can’t use 'this' to access class variable: Base.ID or Derived.ID
         console.log( this.constructor.name ); // "Base" or "Derived"
         console.log( this.constructor.ID   ); // Base.ID or Derived.ID, requires <Class>.prototype.constructor
     };
